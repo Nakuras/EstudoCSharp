@@ -10,13 +10,18 @@ namespace ChessUdemy.BoardResources
     {
         public int lines { get; set; }
         public int colums { get; set; }
-        public Piece[,] pieces { get; set; }
+        private Piece[,] pieces;
 
         public Board(int lines, int colums)
         {
             this.lines = lines;
             this.colums = colums;
             pieces = new Piece[lines, colums];
+        }
+
+        public Piece Piece(int lines, int colums)
+        {
+            return pieces[lines, colums];
         }
     }
 }
