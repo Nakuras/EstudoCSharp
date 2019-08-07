@@ -13,9 +13,9 @@ namespace ChessUdemy.BoardResources
         public int moviments { get; set; }
         public Board board { get; set; }
 
-        public Piece(Position position, Color color, Board board)
+        public Piece(Board board, Color color)
         {
-            this.position = position;
+            position = null;
             this.color = color;
             this.board = board;
             moviments = 0;

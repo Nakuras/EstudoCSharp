@@ -23,5 +23,11 @@ namespace ChessUdemy.BoardResources
         {
             return pieces[lines, colums];
         }
+
+        public void PutPiece(Piece piece, Position position)
+        {
+            pieces[position.line, position.colum] = piece;
+            piece.position = position;
+        }
     }
 }
