@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardResources\Board.cs" />
+    <Compile Include="BoardResources\BoardException.cs" />
     <Compile Include="BoardResources\Color.cs" />
     <Compile Include="BoardResources\Piece.cs" />
     <Compile Include="BoardResources\Position.cs" />
