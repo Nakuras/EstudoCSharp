@@ -12,13 +12,30 @@ namespace ChessUdemy
     {
         static void Main(string[] args)
         {
-            Board board = new Board(8, 8);
+            try
+            {
+                ChessGame chessGame = new ChessGame();
 
-            board.PutPiece(new Tower(board, Color.Black), new Position(0, 0));
-            board.PutPiece(new Tower(board, Color.Black), new Position(1, 3));
-            board.PutPiece(new King(board, Color.Black), new Position(0, 2));
+                while (!chessGame.concluded)
+                {
+                    Console.Clear();
+                    Screen.PrintBoard(chessGame.Board);
 
-            Screen.PrintBoard(board);
+                    Console.WriteLine();
+                    Console.WriteLine("Origin: ");
+                    Position origin = Screen.ReadChessPosition().ToPosition();
+
+                    Console.WriteLine("Destiny: ");
+                    Position destiny = Screen.ReadChessPosition().ToPosition();
+
+                    chessGame.Moviment(origin, destiny);
+                }
+
+            }
+            catch (BoardException e)
+            {
+                Console.WriteLine(e);
+            }
 
             Console.ReadLine();
         }

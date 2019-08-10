@@ -19,12 +19,12 @@ namespace ChessUdemy.BoardResources
             pieces = new Piece[lines, colums];
         }
 
-        public Piece Piece(Position position)
+        public Piece GetPiece(Position position)
         {
             return pieces[position.line, position.colum];
         }
 
-        public Piece Piece(int line, int colum)
+        public Piece GetPiece(int line, int colum)
         {
             return pieces[line, colum];
         }
@@ -32,7 +32,7 @@ namespace ChessUdemy.BoardResources
         public bool PieceExistence(Position position)
         {
             ValidatePosition(position);
-            return Piece(position) != null;
+            return GetPiece(position) != null;
         }
 
         public void PutPiece(Piece piece, Position position)
@@ -43,6 +43,20 @@ namespace ChessUdemy.BoardResources
             }
             pieces[position.line, position.colum] = piece;
             piece.position = position;
+        }
+
+        public Piece RemovePiece(Position position)
+        {
+            if (GetPiece(position) == null)
+            {
+                return null;
+            }
+            
+            Piece helper = GetPiece(position);
+            helper.position = null;
+            pieces[position.line, position.colum] = null;
+
+            return helper;
         }
 
         public bool PositionValid(Position position)

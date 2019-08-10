@@ -20,5 +20,10 @@ namespace ChessUdemy.BoardResources
             this.board = board;
             moviments = 0;
         }
+
+        public void MovimentIncrease()
+        {
+            moviments++;
+        }
     }
 }

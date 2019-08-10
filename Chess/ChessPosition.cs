@@ -7,7 +7,7 @@ using ChessUdemy.BoardResources;
 
 namespace ChessUdemy.Chess
 {
-    class ChessPosition
+    public class ChessPosition
     {
         public char Colum { get; set; }
         public int Line { get; set; }

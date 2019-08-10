@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ChessUdemy.BoardResources;
+using ChessUdemy.Chess;
 
 namespace ChessUdemy
 {
@@ -16,19 +17,29 @@ namespace ChessUdemy
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < board.colums; j++)
                 {
-                    if (board.Piece(i, j) == null)
+                    if (board.GetPiece(i, j) == null)
                     {
                         Console.Write("- ");
                     }
                     else
                     {
-                        ImprintPiece(board.Piece(i, j));
+                        ImprintPiece(board.GetPiece(i, j));
                         Console.Write(" ");
                     }
                 }
                 Console.WriteLine();
             }
             Console.WriteLine("  a b c d e f g h");
+        }
+
+        public static ChessPosition ReadChessPosition()
+        {
+            string command = Console.ReadLine();
+
+            char column = command[0];
+            int line = int.Parse($"{command[1]}");
+
+            return new ChessPosition(column, line);
         }
 
         public static void ImprintPiece(Piece piece)
@@ -39,10 +50,10 @@ namespace ChessUdemy
             }
             else
             {
-                ConsoleColor auxiliarColor = Console.ForegroundColor;
+                ConsoleColor helperColor = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(piece);
-                Console.ForegroundColor = auxiliarColor;
+                Console.ForegroundColor = helperColor;
             }
         }
     }
